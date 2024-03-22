@@ -1,0 +1,68 @@
+• AVERIGUA ACERCA DE LAS DENOMINADAS "ARROW FUNCTIONS" EN JS.
+
+ARROW FUNCTIONS o tambien llamadas funciones de flecha son una forma diferente de escribir funciones en JavaScript, permitiendonos transcribir 
+una sintaxis de funcion mas corta.
+
+    //ES5
+      let suma = function (a,b){
+        return a+b;
+      };
+
+    //ES6
+      let suma = (a, b) => a+b;
+
+Si la función tiene solamente una sentencia que devuelve un valor, el uso de funciones flecha nos permite eliminar las llaves y la palabra return.
+Incluso utilizando parámetros también podemos ver mucho más reducido el código.
+Las funciones de flecha, o arrow functions son una nueva forma de definir funciones y hay distintas variantes en la sintaxis:
+    FUNCION DE UN SOLO PARAMETRO: Al crear una arrow function de un solo parámetro no es necesario escribír los paréntesis, tampoco es necesario 
+    escribír las llaves, esto se puede cuando la función es de una sola línea y devuelve un valor.
+    //Antes
+    var saludo = function (nombre) {
+        return 'Hola ' + nombre;
+    };
+    console.log( saludo('Jonathan') ); //Imprime Hola Jonathan
+
+    //Ahora
+    let saludo = nombre => `Hola ${nombre}`;
+    console.log( saludo('Jonathan') ); //Imprime Hola Jonathan
+
+    FUNCION DE VARIOS PARAMETROS: Cuando la función tenga más de un parámetro es necesario envolver el nombre de estos entre paréntesis.
+    //Antes
+    var sumar = function (a, b) {
+        return a + b;
+    };
+    console.log( sumar(10, 9) ); //Imprime 19
+
+    //Ahora
+    let sumar = (a, b) => a + b;
+    console.log( sumar(10, 9) ); //Imprime 19
+
+    FUNCION SIN PARAMETROS: Cuando la funcion no reciba parametros tambien son necesarios los parentesis.
+    //Antes
+    var saludo = function () {
+        return 'Hola a tod@s';
+    };
+    console.log( saludo() ); //Imprime Hola a tod@s
+
+    //Ahora
+    let saludo = () => `Hola a tod@s`;
+    console.log( saludo() ); //Imprime Hola a tod@s
+
+• AVERIGUA ACERCA DE LAS DENOMINADAS CALLBACKS EN JS.
+Los CALLBACKS en JavaScript representan el uso de funciones como parametros de otras funciones. Es decir, una funcion callback se crea cuando 
+insertamos una funcion como valor de un parametro de otra funcion.
+Crear un callback en Js nos permite solucionar un problema que nos encontraremos frecuentemente en la escritura de codigo: la creacion infinita
+de elementos if.
+
+    function saludar(nombre) {
+        alert("Hola " + nombre);
+    }
+
+    function procesarEntradaUsuario(callback) {
+        var nombre = prompt("Por favor ingresa tu nombre.");
+        callback(nombre);
+    }
+
+    procesarEntradaUsuario(saludar);
+
+El ejemplo anterior es una callback sincrona, ya que se ejecuta inmediatamente.

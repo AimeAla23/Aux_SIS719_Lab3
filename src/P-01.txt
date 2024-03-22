@@ -1,0 +1,32 @@
+EXPLICAR CON UN EJEMPLO COMO FUNCIONA EL ARCHIVO .GITIGNORE, PACKAGE.JSON Y OTRO ARCHIVO SOBRE ALGUN TEMA QUE HAYAS INVESTIGADO O TE HAYA 
+INTERESADO.
+
+.GITIGNORE
+Ejemplo: Supongamos que se esta realizando un proyecto web utilizando Git como sistemas de control de versiones, este proyecto incluye varios 
+archivos y directorios como: index.html(pag. principal), styles.css(contiene archivos CSS), scripts (contiene archivos JavaScript), node_modules
+(contiene dependencias de Node.js) y config.ini(archivo de configuracion con informacion sensible, como credenciales de DB).  
+En este caso no queremos que los archivos en node_modules y config.ini se añadan al repositorio, ya que los primeros son dependencias que pueden 
+ser regeneradas y los segundos contienen informacion sensible y aqui es donde entra en juego .gitignore.
+Para gestionar esto creamos el archivo llamado .gitignore en el directorio raiz del repositorio y especificamos los archivos y directorios que se 
+quiere ignorar. Ya agregado este archivo, git ignorara automaticamente cualquier cambio en los archivos y directorios especificados, por tanto, 
+cuando cuando se realice cambios en cualquiera de los dos archivos y se ejecute git status, git no los mostrara como archivos sin seguimiento o 
+archivos modificados.  
+
+PACKAGE.JSON
+Ejemplo: Se crea un proyecto de Node.js para un app web que utiliza algun framework y bibliotecas adicionales, al desglozar package.json tendremos 
+estos: name(nombre del proyecto), version(version actual), description(breve descripcion del proyecto), main(archivo que se ejecutara cuando inicie 
+la app), scripts(define los scripts de npm que se puede ejecutar con el comando "npm run ___"), dependencies(aqui se listan las dependencias del 
+producto del proyecto como ser bibliotecas o paquetes) y devDdependencies(dependencias necesarias solo en desarrollo).
+Ya configurado el package.json instlamaos las dependencias listadas ejecutando npm install, esto descaragara e instalara todas las dependencias 
+especificadas en el archivo package.json en el directorio node_modules.  
+En resumen, package.jsones un archivo crucial para la gestion de proyectos Node.js ya que proporciona informacion sobre el proyecto, sus dependencias 
+y scripts de ejecucion, haciendo la gestion del proyecto y la colaboracion mas sencilla y reproducible.
+
+YARN.LOCK
+Ejemplo: Se trabaja en un proyecto Node.js y se decidio utilizar yarn como admi de paquetes. Ya ejecutado yarn con "yarn install" este generara un  
+archivo "yarn.lock" este archivo se utiliza para bloquear las versiones exactas de todas las dependencias y sus subdependencias, junto con sus URL 
+de descarga y huellas de los archivos.
+En yarn.lock incluye las versiones especificas de las dependencias junto con sus resoluciones y dependencias transitiva. Cuando otro desarrollador 
+o un servidor de CI/CD intenta instalar las dependencias del proyecto, Yarn leera el archivo "yarn.lock" y garantizara que todas las dependencias 
+se instalen con las mismas versiones exactas que se utilizaron durante el desarrollo original, lo que ayuda a mantener la consistencia entre diferentes 
+entornos y asegura que el proyecto se comporte de manera predecible en todas partes.

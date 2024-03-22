@@ -9,6 +9,11 @@
   /* Multiplique los numeros del arreglo por 5 */
 
   /*Resultado esperado: [5, 10, 15, 20, 25] */
+  let multiplication = [];
+  for(let i = 0; i < numbers.length; i++){
+    multiplication.push(numbers[i] * 5);
+  }
+  console.log(multiplication);
 
   /* First excercise */
 
@@ -19,6 +24,8 @@
   /* Ordernar los nombres alfabeticamente */
 
   /* Resultado esperado: ["Daniel", "Jhosep", "Rodrigo", "Veronica"] */
+  names.sort();
+  console.log(names);
 
   /* Second excercise */
 
@@ -28,6 +35,15 @@
 
   /* Dado un arreglo, crear otro sin letras repetidas */
   /* Resultado esperado: ['a', 'b', 'z', 'r', 'c'] */
+  let repetition = {};
+  let exclusive = data.filter( letter => {
+    if (!repetition[letter]) {
+      repetition[letter] = true;
+      return true;
+    }
+    return false;
+  });
+  console.log(exclusive);
 
   /* Thrid excercise */
 
@@ -48,7 +64,23 @@
       D: 1
     }
   */
+  let record = {};
+  for (let i = 0; i < largeWord.length; i++){
+    let letter = largeWord[i];
 
+    if (record[letter]){
+      record[letter]++;
+    } else {
+      record[letter] = 1;
+    }
+  }
+  let output = "";
+  for (let letter in record) {
+    /*console.log(`${letter}: ${record[letter]},`)  }*/
+    output +=  `${letter}: ${record[letter]},\n`;
+  }
+  output = output.slice(0, -2); //REMUEVE LA ULTIMA COMA
+  console.log(output);
   /* Fourth excercise */
 
 })();
